@@ -1,19 +1,55 @@
-
 dist: trusty
 language: cpp
 
 script:
   - mkdir build && cd build
-  - cmake .. -DCMAKE_CXX_COMPILER=g++-6
+  - cmake .. -DCMAKE_CXX_COMPILER=$CMAKE_CXX_COMPILER
   - cmake --build .
   - ./hello
 
-env:
-  - COMPILER=g++-6
-
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-  packages:
-    - g++-6
+matrix:
+  include:
+    - addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - g++-4.9
+      env:
+        - CMAKE_CXX_COMPILER=g++-4.9
+    - addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - g++-5
+      env:
+        - CMAKE_CXX_COMPILER=g++-5
+    - addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          packages:
+          - g++-6
+      env:
+        - CMAKE_CXX_COMPILER=g++-6
+    - addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-trusty-3.9
+          packages:
+          - clang-3.9
+          - g++-6
+      env:
+        - CMAKE_CXX_COMPILER=clang++-3.9
+    - addons:
+        apt:
+          sources:
+          - ubuntu-toolchain-r-test
+          - llvm-toolchain-trusty-4.0
+          packages:
+          - clang-4.0
+          - g++-6
+      env:
+        - CMAKE_CXX_COMPILER=clang++-4.0
