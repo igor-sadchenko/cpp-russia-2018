@@ -4,6 +4,7 @@ before_script:
   - export CONAN_USER_HOME=$(pwd)
   - export CONAN_PASSWORD=demo
   - conan user
+  - conan remote add conan.io https://server.conan.io
 
 stages:
   - build
@@ -72,6 +73,7 @@ deploy:
     - export CONAN_USER_HOME=$(pwd)
     - export CONAN_PASSWORD=demo
     - conan user
+    - conan remote add conan.io https://server.conan.io
   script:
     - conan remote add cpp-russia-2018-ci http://141.8.196.66:9300
     - conan user -p $CONAN_PASSWORD cpp-russia-2018-ci demo
