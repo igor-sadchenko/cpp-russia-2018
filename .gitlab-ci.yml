@@ -1,0 +1,15 @@
+before_script:
+  - apt update && apt install -y cmake python-pip python-dev
+  - pip install conan
+  - conan user
+
+stages:
+  - build
+
+gcc-4:
+  stage: build
+  image: gcc:4
+  script:
+    - conan create . zetcpp/test --build=missing
+  tags:
+    - docker
