@@ -10,7 +10,7 @@ gcc-4:
   stage: build
   image: gcc:4
   script:
-    - conan test_package --build=missing
+   - conan create . demo/testisting --build=missing
   tags:
     - docker
 
@@ -18,7 +18,7 @@ gcc-5:
   stage: build
   image: gcc:5
   script:
-    - conan test_package --build=missing
+   - conan create . demo/testisting --build=missing
   tags:
     - docker
 
@@ -26,7 +26,7 @@ gcc-6:
   stage: build
   image: gcc:6
   script:
-    - conan test_package --build=missing
+   - conan create . demo/testisting --build=missing
   tags:
     - docker
 
@@ -34,13 +34,13 @@ clang-3.9:
   stage: build
   image: walberla/buildenv-ubuntu-clang:3.9
   script:
-    - conan test_package --build=missing
+   - conan create . demo/testisting --build=missing
   tags:
     - docker
 
 # apple-clang-8.0:
 #   stage: build
 #   script:
-#     - conan test_package --build=missing
+#    - conan create . demo/testisting --build=missing
 #   tags:
 #     - osx
