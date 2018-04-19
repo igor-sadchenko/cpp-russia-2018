@@ -11,5 +11,5 @@ TEST(hello, hello)
 
     greet(ss);
 
-    ASSERT_EQ("Hello, world", ss.str());
+    ASSERT_EQ("Hello, world\n", ss.str());
 }
