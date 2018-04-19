@@ -4,8 +4,9 @@ language: cpp
 script:
   - mkdir build && cd build
   - cmake .. -DCMAKE_BUILD_TYPE=$BUILD_TYPE -DCMAKE_CXX_COMPILER=$COMPILER
-  - cmake --build .
+  - cmake --build . -- VERBOSE=1
   - ./hello
+
 
 env:
   - BUILD_TYPE=Release COMPILER=g++-4.9
@@ -19,15 +20,45 @@ env:
   - BUILD_TYPE=Debug COMPILER=clang++-3.9
   - BUILD_TYPE=Debug COMPILER=clang++-4.0
 
+
 addons:
   apt:
     sources:
       - ubuntu-toolchain-r-test
       - llvm-toolchain-trusty-3.9
       - llvm-toolchain-trusty-4.0
-  packages:
-    - g++-4.9
-    - g++-5
-    - g++-6
-    - clang-3.9
-    - clang-4.0
+    packages:
+      - g++-4.9
+      - g++-5
+      - g++-6
+      - clang-3.9
+      - clang-4.0
+
+
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode6.4
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode7.3
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode8
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode8.2
+      env: BUILD_TYPE=Debug
+    - os: osx
+      osx_image: xcode6.4
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode7.3
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode8
+      env: BUILD_TYPE=Release
+    - os: osx
+      osx_image: xcode8.2
+      env: BUILD_TYPE=Release
+
