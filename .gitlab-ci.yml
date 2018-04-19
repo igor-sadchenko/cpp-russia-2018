@@ -2,6 +2,7 @@ before_script:
   - apt update && apt install -y cmake python-pip python-dev
   - pip install conan
   - export CONAN_USER_HOME=demo
+  - export CONAN_PASSWORD=demo
   - conan user
 
 stages:
@@ -69,10 +70,11 @@ deploy:
   before_script:
     - pip install conan
     - export CONAN_USER_HOME=demo
+    - export CONAN_PASSWORD=demo
     - conan user
   script:
     - conan remote add cpp-russia-2018-ci http://141.8.196.66:9300
-    - conan user  -r cpp-russia-2018-ci demo
+    - conan user -p $CONAN_PASSWORD cpp-russia-2018-ci $CONAN_USER_HOME
     - conan upload --confirm -r cpp-russia-2018-ci "hello/*" --all
   dependencies:
     - build:gcc-4
