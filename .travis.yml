@@ -21,9 +21,10 @@ env:
 
 addons:
   apt:
-    - ubuntu-toolchain-r-test
-    - llvm-toolchain-trusty-3.9
-    - llvm-toolchain-trusty-4.0
+    sources:
+      - ubuntu-toolchain-r-test
+      - llvm-toolchain-trusty-3.9
+      - llvm-toolchain-trusty-4.0
   packages:
     - g++-4.9
     - g++-5
