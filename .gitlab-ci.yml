@@ -1,7 +1,7 @@
 before_script:
   - apt update && apt install -y cmake python-pip python-dev
   - pip install conan
-  - export CONAN_USER_HOME=demo
+  - export CONAN_USER_HOME=$(pwd)
   - export CONAN_PASSWORD=demo
   - conan user
 
@@ -69,7 +69,7 @@ deploy:
     - docker
   before_script:
     - pip install conan
-    - export CONAN_USER_HOME=demo
+    - export CONAN_USER_HOME=$(pwd)
     - export CONAN_PASSWORD=demo
     - conan user
   script:
