@@ -74,7 +74,7 @@ deploy:
     - conan user
   script:
     - conan remote add cpp-russia-2018-ci http://141.8.196.66:9300
-    - conan user -p $CONAN_PASSWORD cpp-russia-2018-ci $CONAN_USER_HOME
+    - conan user -p $CONAN_PASSWORD cpp-russia-2018-ci demo
     - conan upload --confirm -r cpp-russia-2018-ci "hello/*" --all
   dependencies:
     - build:gcc-4
