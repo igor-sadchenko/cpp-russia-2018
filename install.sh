@@ -30,3 +30,5 @@ fi
 pip install conan
 
 conan user
+
+conan remote add conan.io https://server.conan.io

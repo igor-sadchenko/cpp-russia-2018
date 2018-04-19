@@ -3,6 +3,8 @@ build:
 install:
   - set PATH=%PATH%;%PYTHON%/Scripts/
   - pip.exe install conan
+  - conan user
+  - conan remote add conan.io https://server.conan.io
   - mkdir build && cd build
   - conan install .. --build=missing -s build_type=%BUILD_TYPE% -s compiler="Visual Studio" -s compiler.version=%TOOLCHAIN_VERSION%
 
