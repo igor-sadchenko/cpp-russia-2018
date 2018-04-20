@@ -13,7 +13,7 @@ build_script:
   - cmake --build . --config %BUILD_TYPE% 
 
 test_script:
-  - cmd: C:\projects\cpp-russia-2018\build\bin\test_hello.exe
+  - cmd: ctest -V -C %BUILD_TYPE%
 
 environment:
   PYTHON: "C:\\Python27"
