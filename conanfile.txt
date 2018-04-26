@@ -3,7 +3,6 @@ gtest/1.8.0@lasote/stable
 
 [options]
 gtest:shared=False
-gtest:include_pdbs=False  # MSVC - include debug symbols
 gtest:no_gmock=True       # don't include Google Mock
 gtest:no_main=False       # don't link with main() provided by gtest/gmock
 
