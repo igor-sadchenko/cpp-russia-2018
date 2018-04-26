@@ -17,4 +17,3 @@ set_property(TARGET ${PROJECT_NAME} PROPERTY CXX_STANDARD 14)
 
 enable_testing()
 add_subdirectory(test)
-add_test(hello)
