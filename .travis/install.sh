@@ -34,6 +34,6 @@ fi
 python -m pip install conan --upgrade
 python -m pip install conan_package_tools
 
-conan user
+python -m conan user
 
-conan remote add conan.io https://server.conan.io false
+python -m conan remote add conan.io https://server.conan.io false
