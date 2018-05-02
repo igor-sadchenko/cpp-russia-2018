@@ -8,6 +8,8 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
         eval "$(pyenv init -)"
     fi
     pyenv activate conan
+    CC="clang"
+    CXX="clang++"
 fi
 
 if [[ "$(uname -s)" == 'Linux' ]]; then
