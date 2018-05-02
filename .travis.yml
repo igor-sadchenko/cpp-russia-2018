@@ -1,6 +1,8 @@
-dist: trusty
-language: cpp
+cache: pip
+language: python
+os: linux
 sudo: required
+dist: trusty
 
 install:
   - bash ./.travis/install.sh
